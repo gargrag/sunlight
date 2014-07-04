@@ -17,9 +17,9 @@ fi
 
 # http://www.gnu.org/software/bash/manual/html_node/Bash-History-Builtins.html#Bash-History-Builtins
 # We are going to store each session as a separate file
-bash_hist=$HOME/.history-bash
+bash_hist=$HIST_DIR/$USER 
 sship=`echo $SSH_CLIENT | awk '{print $1}'`
-test -d $bash_hist || mkdir $HOME/.history-bash 
+test -d $bash_hist || mkdir -p $bash_hist
 export HISTFILE=$bash_hist/hist-$sship-`date +%Y-%m-%d-%H-%M-%S`.hist
 
 # Notify upon login
